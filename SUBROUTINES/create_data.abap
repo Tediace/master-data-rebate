@@ -56,7 +56,7 @@ FORM create_data .
     IF sy-subrc = 0.
       wa_drebate-maktx = wa_matr-maktx.
     ENDIF.
-*    wa_drebate-matnr = wa_rebate-matnr+10(8).
+
     CALL FUNCTION 'CONVERSION_EXIT_MATN1_OUTPUT'
       EXPORTING
         input        = wa_rebate-matnr
