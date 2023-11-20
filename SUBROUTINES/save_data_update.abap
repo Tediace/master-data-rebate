@@ -13,14 +13,9 @@ FORM save_data_update .
 
   DATA: ls_urebate TYPE ztlpvt007,
         lv_umatnr  TYPE makt-matnr.
-
-*  DATA: lv_kbetr TYPE C LENGTH 20.
-
-*  MODIFY ztlpvt007 FROM TABLE gt_rebate.
   IF gl_grid IS NOT INITIAL.
     gl_grid->check_changed_data( IMPORTING e_valid = lv_flag ).
     IF lv_flag IS NOT INITIAL.
-*      DELETE gt_rebate WHERE kunwe IS INITIAL.
       LOOP AT gt_urebate INTO wa_urebate.
         IF wa_urebate-kunwe IS INITIAL OR wa_urebate-matnr IS INITIAL OR wa_urebate-wcb_cond_amount IS INITIAL OR
           wa_urebate-kmein IS INITIAL OR wa_urebate-kbetr IS INITIAL OR wa_urebate-konwa IS INITIAL OR
@@ -41,14 +36,6 @@ FORM save_data_update .
             ls_urebate-matnr = lv_umatnr.
             ls_urebate-wcb_cond_amount = wa_urebate-wcb_cond_amount.
             ls_urebate-kmein = wa_urebate-kmein.
-
-*            CALL FUNCTION 'CONVERSION_EXIT_P24PR_INPUT'
-*              EXPORTING
-*                input         = wa_urebate-kbetr
-*             IMPORTING
-*               OUTPUT        = lv_kbetr.
-*
-*            ls_urebate-kbetr = lv_kbetr.
             ls_urebate-kbetr = wa_urebate-kbetr.
             ls_urebate-konwa = wa_urebate-konwa.
             ls_urebate-datab = wa_urebate-datab.
@@ -67,24 +54,8 @@ FORM save_data_update .
             ENDIF.
           ENDIF.
         ENDIF.
-*        IF wa_urebate-kunwe IS NOT INITIAL.
-*
-*        ENDIF.
-*          MOVE-CORRESPONDING wa_rebate TO lw_rebate.
-
-*        ELSE.
-*          DELETE gt_rebate FROM wa_rebate.
       ENDLOOP.
     ENDIF.
-*    IF it_rebate IS NOT INITIAL.
-**      INSERT ztlpvt007 FROM TABLE it_rebate.
-*      UPDATE ztlpvt007 FROM TABLE it_rebate.
-*      CALL METHOD gl_grid->set_ready_for_input
-*        EXPORTING
-*          i_ready_for_input = 0.
-**      MODIFY ztlpvt007 FROM TABLE it_rebate.
-**      MODIFY gt_drebate FROM it_rebate.
-*    ENDIF.
   ENDIF.
 
 ENDFORM.
