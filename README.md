@@ -1,6 +1,6 @@
 # Master Data Rebate
 CRUD (SD)
-<p>This is program of Master Data Rebate for module SD to Create, Update and Delete Data like TCODE SM30</p>
+<p>This program is designed for the Master Data Rebate module in SD, enabling the creation, updating, and deletion of data similar to the functionality provided by TCODE SM30.</p>
 
 ## - Home
 ![image](https://github.com/Tediace/master-data-rebate/assets/43319929/d58ebb4d-20c9-42a3-9b6a-aaba4aeab519).
