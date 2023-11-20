@@ -27,41 +27,6 @@ FORM save_data_update .
           wa_urebate-datab IS INITIAL OR wa_urebate-datbi IS INITIAL.
           MESSAGE 'Input data must be completed' TYPE 'E'.
         ELSE.
-
-*          UPDATE ztlpvt007
-*         SET krech = @ztlpvt007-krech,
-*             type = @ztlpvt007-type
-*         WHERE rbt = @wa_drebate-rbt AND
-*               vkorg = @wa_drebate-vkorg.
-***          UPDATE ztlpvt007
-***          SET krech = @ztlpvt007-krech,
-***              zttgt = @ztlpvt007-zttgt,
-***              kunwe = @wa_urebate-kunwe,
-***              matnr = @wa_urebate-matnr,
-***              wcb_cond_amount = @wa_urebate-wcb_cond_amount,
-***              kmein = @wa_urebate-kmein,
-***              kbetr = @wa_urebate-kbetr,
-***              konwa = @wa_urebate-konwa,
-***              datab = @wa_urebate-datab,
-***              datbi = @wa_urebate-datbi,
-***              aenam = @sy-uname,
-***              aedat = @sy-datum,
-***              aetim = @sy-uzeit
-***          WHERE rbt = @wa_urebate-rbt AND
-***                vkorg = @wa_urebate-vkorg.
-*
-*          ls_rebate-kunwe = wa_urebate-kunwe.
-*          ls_rebate-matnr = wa_urebate-matnr.
-*          ls_rebate-wcb_cond_amount = wa_urebate-wcb_cond_amount.
-*          ls_rebate-kmein = wa_urebate-kmein.
-*          ls_rebate-kbetr = wa_urebate-kbetr.
-*          ls_rebate-konwa = wa_urebate-konwa.
-*          ls_rebate-datab = wa_urebate-datab.
-*          ls_rebate-datbi = wa_urebate-datbi.
-*          ls_rebate-aenam = sy-uname.                "name person changed object
-*          ls_rebate-aedat = sy-datum.                "last change on
-*          ls_rebate-aetim = sy-uzeit.                "change time
-*          APPEND ls_rebate TO it_rebate.
           SELECT SINGLE * FROM ztlpvt007 INTO ls_urebate WHERE rbt = wa_urebate-rbt.
           IF sy-subrc = 0.
 
