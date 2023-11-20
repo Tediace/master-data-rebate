@@ -8,7 +8,6 @@
 *&---------------------------------------------------------------------*
 FORM toolbar_excluding CHANGING pt_exclude TYPE ui_functions.
   DATA gs_excluding TYPE ui_func.
-
   gs_excluding = cl_gui_alv_grid=>mc_fc_loc_delete_row.
   APPEND gs_excluding TO pt_exclude.
   gs_excluding = cl_gui_alv_grid=>mc_fc_loc_append_row.
@@ -49,6 +48,4 @@ FORM toolbar_excluding CHANGING pt_exclude TYPE ui_functions.
   APPEND gs_excluding TO pt_exclude.
   gs_excluding = cl_gui_alv_grid=>mc_mb_filter.
   APPEND gs_excluding TO pt_exclude.
-
-
 ENDFORM.
